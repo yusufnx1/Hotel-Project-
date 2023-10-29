@@ -1,0 +1,66 @@
+﻿@model List<ResultBookingDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Rezervasyonlar</h4>
+                <div class="table-responsive">
+                    <table class="table header-border">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Misafir</th>
+                                <th scope="col">Giriş Tarihi</th>
+                                <th scope="col">Çıkış Tarihi</th>
+                                <th scope="col">Durum</th>
+                                <th scope="col">Onayla</th>
+                                <th scope="col">İptal</th>
+                                <th scope="col">Bekle</th>
+                                <th scope="col">Güncelle</th>
+                                <th scope="col">Detay</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th>@count</th>
+                                    <td>@item.Name</td>
+                                    <td>@item.Checkin.ToString("dd-MM-yyyy")</td>
+                                    <td>@item.CheckOut.ToString("dd-MM-yyyy")</td>
+                                    <td>
+                                        <span class="badge badge-primary px-2">@item.Status</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-outline-primary">Onayla</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-outline-danger">İptal Et</a>
+
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-outline-info">Beklet</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-outline-warning">Güncelle</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-outline-dark">Detaylar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
