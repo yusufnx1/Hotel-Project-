@@ -1,0 +1,25 @@
+﻿@model List<BookingApiViewModel.Datum>
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Şehir Adı</th>
+            <th>Hotel Adı</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.dest_id</td>
+                <td>@item.city_name</td>
+                <td>@item.name</td>
+            </tr>
+        }
+    </table>
+</div>
