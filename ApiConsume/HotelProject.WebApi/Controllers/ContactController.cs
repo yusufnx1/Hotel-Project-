@@ -16,11 +16,17 @@ namespace HotelProject.WebApi.Controllers
             _contactService = contactService;
         }
         [HttpPost]
-        public IActionResult AddBooking(Contact contact)
+        public IActionResult AddContact(Contact contact)
         {
             contact.Date = Convert.ToDateTime(DateTime.Now.ToString());
             _contactService.TInsert(contact);
             return Ok();
+        }
+        [HttpGet]
+        public IActionResult InboxListContact()
+        {
+            var values = _contactService.TGetList();
+            return Ok(values);
         }
     }
 }
