@@ -2,6 +2,7 @@
 {
     public class InboxContactDto
     {
+        public int ContactId { get; set; }
         public string Name { get; set; }
         public string Mail { get; set; }
         public string Subject { get; set; }

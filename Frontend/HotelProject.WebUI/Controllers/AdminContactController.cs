@@ -68,5 +68,29 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> MessageDetailsBySenbox(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responsiveMessage = await client.GetAsync($"http://localhost:5069/api/SendMessage/{id}");
+            if (responsiveMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responsiveMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<GetMessageByIdDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+        public async Task<IActionResult> MessageDetailsByInBox(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responsiveMessage = await client.GetAsync($"http://localhost:5069/api/Contact/{id}");
+            if (responsiveMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responsiveMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<InboxContactDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
     }
 }

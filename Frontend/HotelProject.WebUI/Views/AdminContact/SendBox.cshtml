@@ -26,7 +26,7 @@
                     @foreach (var item in Model)
                     {
                         <div class="message">
-                            <a href="email-read.html">
+                            <a href="/AdminContact/MessageDetailsBySendBox/@item.SendMessageId">
                                 <div class="col-mail col-mail-1">
                                     <div class="email-checkbox">
                                         <input type="checkbox" id="chk2">
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="col-mail col-mail-2">
                                     <div class="subject">
-                                       Konu : <b>@item.Title</b>
+                                        Konu : <b>@item.Title</b>
                                         Gönderen : <b>@item.ReceiverName </b>
                                         @item.Content
                                     </div>
