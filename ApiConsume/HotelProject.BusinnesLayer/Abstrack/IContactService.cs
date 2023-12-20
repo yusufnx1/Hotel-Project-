@@ -4,5 +4,6 @@ namespace HotelProject.BusinnesLayer.Abstrack
 {
     public interface IContactService : IGenericService<Contact>
     {
+        public int TGetContactCount();
     }
 }

@@ -4,5 +4,6 @@ namespace HotelProject.DataAccesLayer.Abstrack
 {
     public interface ISendMessageDal : IGenericDal<SendMessage>
     {
+        public int GetSenMessageCount();
     }
 }

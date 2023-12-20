@@ -26,9 +26,14 @@ builder.Services.AddMvc(config =>
 builder.Services.ConfigureApplicationCookie(opt =>
 {
     opt.Cookie.HttpOnly = true;
-    opt.ExpireTimeSpan= TimeSpan.FromMinutes(10);
+    opt.ExpireTimeSpan = TimeSpan.FromMinutes(10);
     opt.LoginPath = "/Login/Index/";
 });
+
+
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
 
 var app = builder.Build();
 
@@ -38,7 +43,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 
-app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404","?code={0}");
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();

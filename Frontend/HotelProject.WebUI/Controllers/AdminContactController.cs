@@ -19,15 +19,21 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responsiveMessage = await client.GetAsync("http://localhost:5069/api/Contact");
+
+            var client1 = _httpClientFactory.CreateClient();
+            var responsiveMessage2 = await client1.GetAsync("http://localhost:5069/api/Contact/GetContactCount");
+
             if (responsiveMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responsiveMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<InboxContactDto>>(jsonData);
+                var jsonData2= await responsiveMessage2.Content.ReadAsStringAsync();
+                ViewBag.contantCount = jsonData2;
                 return View(values);
             }
             return View();
         }
-        public PartialViewResult SidebarAdminContactPartial()
+        public async Task<PartialViewResult> SidebarAdminContactPartial()
         {
             return PartialView();
         }
@@ -62,7 +68,7 @@ namespace HotelProject.WebUI.Controllers
             var responsiveMessage = await client.GetAsync("http://localhost:5069/api/SendMessage");
             if (responsiveMessage.IsSuccessStatusCode)
             {
-                var jsonData= await responsiveMessage.Content.ReadAsStringAsync();
+                var jsonData = await responsiveMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultSendBoxDto>>(jsonData);
                 return View(values);
             }
@@ -92,5 +98,6 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+
     }
 }

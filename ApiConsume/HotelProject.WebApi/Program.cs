@@ -8,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 builder.Services.AddDbContext<Context>();
 
@@ -34,15 +35,25 @@ builder.Services.AddScoped<IBookingDal, EfBookingDal>();
 builder.Services.AddScoped<IBookingService, BookingManager>();
 
 builder.Services.AddScoped<IContactDal, EfContactDal>();
-builder.Services.AddScoped<IContactService,ContactManager>();
+builder.Services.AddScoped<IContactService, ContactManager>();
 
-builder.Services.AddScoped<IGuestDal,EfGuestDal>();
-builder.Services.AddScoped<IGuestService,GuestManager>();
+builder.Services.AddScoped<IGuestDal, EfGuestDal>();
+builder.Services.AddScoped<IGuestService, GuestManager>();
 
 builder.Services.AddScoped<ISendMessageDal, EfSendMessageDal>();
-builder.Services.AddScoped<ISendMessageService,SendMessageManager>();
+builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
+
+builder.Services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
+builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+
+builder.Services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
+builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
+
+builder.Services.AddScoped<IAppUserDal,EfAppUserDal>();
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
 
 builder.Services.AddAutoMapper(typeof(Program));
+
 
 
 builder.Services.AddCors(opt =>
