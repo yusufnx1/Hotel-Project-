@@ -9,6 +9,6 @@ namespace HotelProject.EntityLayer.Concrete
     public class Subscribe
     {
         public int SubscribeId { get; set; }
-        public string MailAdress { get; set; }
+        public string? MailAdress { get; set; }
     }
 }

@@ -18,6 +18,16 @@ namespace HotelProject.BusinnesLayer.Concrete
             _staffDal = staffDal;
         }
 
+        public int GetStaffCount()
+        {
+            return _staffDal.GetStaffCount();
+        }
+
+        public List<Staff> Last4Staff()
+        {
+           return _staffDal.Last4Staff();
+        }
+
         public void TDelete(Staff t)
         {
             _staffDal.Delete(t);

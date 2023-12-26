@@ -6,5 +6,6 @@ namespace HotelProject.BusinnesLayer.Abstrack
     {
         List<AppUser> TUserListWhitWorkLocation();
         List<AppUser> TUserListWhitWorkLocations();
+        int TAppUserCout();
     }
 }

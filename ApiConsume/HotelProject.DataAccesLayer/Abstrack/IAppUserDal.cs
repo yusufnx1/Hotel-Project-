@@ -6,5 +6,6 @@ namespace HotelProject.DataAccesLayer.Abstrack
     {
         List<AppUser> UserListWhitWorkLocation();
         List<AppUser> UserListWhitWorkLocations();
+        int AppUserCout();
     }
 }

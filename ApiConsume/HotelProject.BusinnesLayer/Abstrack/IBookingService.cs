@@ -11,5 +11,6 @@ namespace HotelProject.BusinnesLayer.Abstrack
     {
         void TBookingStatusChangeApproved(Booking booking);
         void TBookingStatusChangeApproved2(int id);
+        int GetBookingCount();
     }
 }

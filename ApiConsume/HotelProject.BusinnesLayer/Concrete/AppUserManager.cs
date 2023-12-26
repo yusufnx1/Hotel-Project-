@@ -1,11 +1,6 @@
 ﻿using HotelProject.BusinnesLayer.Abstrack;
 using HotelProject.DataAccesLayer.Abstrack;
 using HotelProject.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelProject.BusinnesLayer.Concrete
 {
@@ -16,6 +11,11 @@ namespace HotelProject.BusinnesLayer.Concrete
         public AppUserManager(IAppUserDal appUserDal)
         {
             _appUserDal = appUserDal;
+        }
+
+        public int TAppUserCout()
+        {
+            return _appUserDal.AppUserCout();
         }
 
         public void TDelete(AppUser t)
@@ -30,7 +30,7 @@ namespace HotelProject.BusinnesLayer.Concrete
 
         public List<AppUser> TGetList()
         {
-           return _appUserDal.GetList();
+            return _appUserDal.GetList();
         }
 
         public void TInsert(AppUser t)
@@ -40,12 +40,12 @@ namespace HotelProject.BusinnesLayer.Concrete
 
         public void TUpdate(AppUser t)
         {
-            _appUserDal.Update(t);  
+            _appUserDal.Update(t);
         }
 
         public List<AppUser> TUserListWhitWorkLocation()
         {
-           return _appUserDal.UserListWhitWorkLocation();
+            return _appUserDal.UserListWhitWorkLocation();
         }
 
         public List<AppUser> TUserListWhitWorkLocations()

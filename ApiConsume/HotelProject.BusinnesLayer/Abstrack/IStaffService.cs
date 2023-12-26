@@ -9,5 +9,7 @@ namespace HotelProject.BusinnesLayer.Abstrack
 {
     public interface IStaffService : IGenericService<Staff>
     {
+        int GetStaffCount();
+        List<Staff> Last4Staff();
     }
 }

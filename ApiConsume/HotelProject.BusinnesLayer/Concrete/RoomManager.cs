@@ -1,11 +1,6 @@
 ﻿using HotelProject.BusinnesLayer.Abstrack;
 using HotelProject.DataAccesLayer.Abstrack;
 using HotelProject.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelProject.BusinnesLayer.Concrete
 {
@@ -16,6 +11,11 @@ namespace HotelProject.BusinnesLayer.Concrete
         public RoomManager(IRoomDal roomDal)
         {
             _roomDal = roomDal;
+        }
+
+        public int TRoomCount()
+        {
+            return _roomDal.RoomCount();
         }
 
         public void TDelete(Room t)
@@ -30,7 +30,7 @@ namespace HotelProject.BusinnesLayer.Concrete
 
         public List<Room> TGetList()
         {
-           return _roomDal.GetList();
+            return _roomDal.GetList();
         }
 
         public void TInsert(Room t)

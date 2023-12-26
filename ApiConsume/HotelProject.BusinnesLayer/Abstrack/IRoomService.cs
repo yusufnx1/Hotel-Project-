@@ -9,5 +9,6 @@ namespace HotelProject.BusinnesLayer.Abstrack
 {
     public interface IRoomService : IGenericService<Room>
     {
+        int TRoomCount();
     }
 }
